@@ -355,17 +355,17 @@
         <div class="container">
           <!-- Panels -->
           <div class="swipe">
-            <div class="panel" data-img="./img_l/1.JPG"></div>
-            <div class="panel" data-img="./img_l/2.JPG"></div>
-            <div class="panel" data-img="./img_l/3.JPG"></div>
-            <div class="panel" data-img="./img_l/4.JPG"></div>
-            <div class="panel" data-img="./img_l/5.JPG"></div>
-            <div class="panel" data-img="./img_l/6.JPG"></div>
-            <div class="panel" data-img="./img_l/7.JPG"></div>
-            <div class="panel" data-img="./img_l/8.JPG"></div>
-            <div class="panel" data-img="./img_l/9.JPG"></div>
-            <div class="panel" data-img="./img_l/10.JPG"></div>
-            <div class="panel" data-img="./img_l/11.JPG"></div>
+            <div class="panel" data-img="./img_l/1.jpg"></div>
+            <div class="panel" data-img="./img_l/2.jpg"></div>
+            <div class="panel" data-img="./img_l/3.jpg"></div>
+            <div class="panel" data-img="./img_l/4.jpg"></div>
+            <div class="panel" data-img="./img_l/5.jpg"></div>
+            <div class="panel" data-img="./img_l/6.jpg"></div>
+            <div class="panel" data-img="./img_l/7.jpg"></div>
+            <div class="panel" data-img="./img_l/8.jpg"></div>
+            <div class="panel" data-img="./img_l/9.jpg"></div>
+            <div class="panel" data-img="./img_l/10.jpg"></div>
+            <div class="panel" data-img="./img_l/11.jpg"></div>
           </div>
         </div>
 
