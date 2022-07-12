@@ -102,7 +102,7 @@
         color: white;
         height: 350px;
         padding-top: 120px;
-        background-image: url("./img/100.JPG");
+        background-image: url("./img_l/100.JPG");
         background-size: contain;
         background-repeat: no-repeat;
         text-align: center;
@@ -183,7 +183,7 @@
         color: white;
         height: 350px;
         padding-top: 120px;
-        background-image: url("./img/101.JPG");
+        background-image: url("./img_l/101.JPG");
         background-size: cover;
         text-align: center;
         padding-bottom: 100px;
@@ -355,17 +355,17 @@
         <div class="container">
           <!-- Panels -->
           <div class="swipe">
-            <div class="panel" data-img="./img/1.JPG"></div>
-            <div class="panel" data-img="./img/2.JPG"></div>
-            <div class="panel" data-img="./img/3.JPG"></div>
-            <div class="panel" data-img="./img/4.JPG"></div>
-            <div class="panel" data-img="./img/5.JPG"></div>
-            <div class="panel" data-img="./img/6.JPG"></div>
-            <div class="panel" data-img="./img/7.JPG"></div>
-            <div class="panel" data-img="./img/8.JPG"></div>
-            <div class="panel" data-img="./img/9.JPG"></div>
-            <div class="panel" data-img="./img/10.JPG"></div>
-            <div class="panel" data-img="./img/11.JPG"></div>
+            <div class="panel" data-img="./img_l/1.JPG"></div>
+            <div class="panel" data-img="./img_l/2.JPG"></div>
+            <div class="panel" data-img="./img_l/3.JPG"></div>
+            <div class="panel" data-img="./img_l/4.JPG"></div>
+            <div class="panel" data-img="./img_l/5.JPG"></div>
+            <div class="panel" data-img="./img_l/6.JPG"></div>
+            <div class="panel" data-img="./img_l/7.JPG"></div>
+            <div class="panel" data-img="./img_l/8.JPG"></div>
+            <div class="panel" data-img="./img_l/9.JPG"></div>
+            <div class="panel" data-img="./img_l/10.JPG"></div>
+            <div class="panel" data-img="./img_l/11.JPG"></div>
           </div>
         </div>
 
