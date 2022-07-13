@@ -575,11 +575,11 @@
             <p>Tuliskan pesan dan harapan terbaik Anda untuk kami pada kolom di bawah ini.</p>
             <br />
             <form action="#">
-              <input type="text" name="nama" class="form-control" id="exampleFormControlInput1" placeholder="Nama Pengirim" />
+              <input type="text" id="field-name-message" name="nama" class="form-control" id="exampleFormControlInput1" placeholder="Nama Pengirim" />
               <br />
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="Pesan"></textarea>
+              <textarea id="field-message-message" name="message" class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="Pesan"></textarea>
               <br />
-              <input class="btn btn-dark btn-lg" type="submit" value="Kirim" />
+              <a id="submit-form-message" class="btn btn-dark btn-lg" value="Kirim">Kirim</a>
               <br />
             </form>
             <br />
@@ -853,6 +853,55 @@
         var topPos = document.getElementById("message-section").offsetTop;
         $("#right-div").animate({ scrollTop: topPos - 10 });
       });
+    </script>
+    <script>
+      function getMessage(){
+        $.post( "./get_message.php", function( data ) {
+          var text = ""
+          for(var i = data.message.length; i > 0; i--){
+            text += '<div class="message-box">'
+            text += '<span style="font-size: 26px"> '+data.message[i-1].name+' </span>'
+            text += '<p>'+data.message[i-1].message+'</p>'
+            text += '<br /><p style="font-size: 14px">'+data.message[i-1].time+'</p>'
+            text += '</div>'
+          }
+          $( ".message-container" ).html(text);
+        });
+      }
+      getMessage()
+      $("#submit-form-message").click(function(){
+        var name = $("#field-name-message").val()
+        var message = $("#field-message-message").val()
+        var time = new Date().toLocaleString('en-ID', { timeZone: 'Asia/Jakarta' })
+        if(name.length < 4){
+          alert("name must be more than 4 characters")
+        }else{
+          if(message.length < 10){
+            alert("message must be more than 10 characters")
+          }else{
+            var message = {
+            "name": name,
+            "message": message,
+            "time": time
+            }
+            request = $.ajax({
+                url: "./new_message.php",
+                type: "post",
+                data: message
+            });
+
+            // Callback handler that will be called on success
+            request.done(function (response, textStatus, jqXHR){
+                if(response.status == 'done'){
+                  alert('Pesan berhasil terkirim!')
+                  getMessage()
+                }else{
+                  alert('Pesan gagal terkirim!')
+                }
+            });
+          }
+        }
+      })
     </script>
   </body>
 </html>
