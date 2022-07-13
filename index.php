@@ -535,7 +535,7 @@
             <p style="font-size: 36px">Live Streaming</p>
             <p>Bergabunglah dengan live streaming di kanal YouTube untuk menyaksikan momen besar kami.</p>
             <br />
-            <a class="btn btn-outline-dark" href="#" role="button">Live Streaming Akad Nikah</a>
+            <a class="btn btn-outline-dark" href="https://youtube.com/channel/UCDaMZkieD9rdZO_Fc31S_GQ" role="button" target="_blank">Live Streaming Akad Nikah</a>
           </div>
         </div>
         <div id="gift-section" class="col-X-12">
@@ -548,13 +548,16 @@
             <p>Terima kasih sebelumnya!</p>
             <br />
             <form action="#">
-              <select name="destination" class="form-select" aria-label="Tujuan">
+              <select id="dest-bank" name="destination" class="form-select" aria-label="Tujuan">
                 <option selected>Tujuan Penerima</option>
                 <option value="1">Mandiri</option>
                 <option value="2">BCA</option>
                 <option value="3">OVO</option>
                 <option value="4">DANA</option>
               </select>
+              <br>
+              <div id='detail-bank'>
+              </div>
               <br />
               <br />
               <input type="text" name="nama" class="form-control" id="exampleFormControlInput1" placeholder="Nama Pengirim" />
@@ -902,6 +905,17 @@
           }
         }
       })
+    </script>
+    <script>
+      $('#dest-bank').on('change', function() {
+        if(this.value == 1){
+          $('#detail-bank').html('<br/><p>Bank Mandiri</p><p>Account Number: 131-00-123-1796-4</p><p>Atas Nama: Muhammad Rifki Nugroho</p>')
+        }else if(this.value == 2){
+          $('#detail-bank').html('<br/><p>Bank BCA</p><p>Account Number: 4060801709</p><p>Atas Nama: Aliva Nur Ulfiah</p>')
+        }else{
+          $('#detail-bank').html('')
+        }
+      });
     </script>
   </body>
 </html>
