@@ -517,13 +517,13 @@ error_reporting(0);
                 <img class="pas-photo" src="./img_potrait/aliva.JPG" alt="" />
               </div>
               <p class="name-title" style="margin-top: 20px">Aliva Nur Ulfiah, S.Sn.</p>
-              <p>Putri dari Bapak Juarto dan Ibu Warni Suharti</p>
+              <p>Putri pertama dari Bapak Juarto dan Ibu Warni Suharti</p>
               <p class="name-title pas-photo-and">&</p>
               <div class="pas-photo-div">
                 <img class="pas-photo" src="./img_potrait/arip.JPG" alt="" />
               </div>
               <p class="name-title" style="margin-top: 20px">M Rifki Nugroho, S. Ds.</p>
-              <p>Putra dari Bapak Gatot Gayantoro Tirtokusumo dan Ibu Hellysa Haerunisa</p>
+              <p>Putra kedua dari Bapak Gatot Gayantoro Tirtokusumo dan Ibu Hellysa Haerunisa</p>
               <br />
               <br />
               <br />
