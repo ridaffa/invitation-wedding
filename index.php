@@ -608,11 +608,11 @@ error_reporting(0);
             <?php 
             $page = 3;
             if (empty($_GET['sesi'])) {
-              $page = 1;
+              $page = 3;
             }else if (is_numeric($_GET['sesi'])){
               $page = (int) $_GET['sesi'];
             }else {
-              $page = 1;
+              $page = 3;
             }
             if($page == 1){
               echo '<p style="font-size: 20px" id="sesi1-text">Sesi 1 (16:30 - 17.45) WIB</p>';
