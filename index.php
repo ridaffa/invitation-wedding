@@ -157,12 +157,14 @@ error_reporting(0);
         margin-bottom: 50px;
       }
       .covid-section {
-        background-color: white;
-        color: black;
+        background-color: black;
+        color: white;
         padding-left: 50px;
         padding-right: 50px;
         text-align: center;
         margin-bottom: 50px;
+        padding-bottom: 50px;
+        padding-top: 50px;
       }
       .live-section {
         background-color: white;
@@ -822,6 +824,15 @@ error_reporting(0);
     <script src="slider.js" crossorigin="anonymous"></script>
     <script>
       $(document).ready(function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        const giftparam = urlParams.get('gift');
+        if(giftparam == 0){
+          $('#gift-section').hide()
+          $('#kado-btn').hide()
+        }else{
+          $('#gift-section').show()
+          $('#kado-btn').show()
+        }
         var win = $(this); //this = window
         if (win.width() < 750) {
           $("#left-div").removeClass("col-8");
