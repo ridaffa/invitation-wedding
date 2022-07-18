@@ -100,7 +100,7 @@ error_reporting(0);
         background-color: white;
         color: black;
         text-align: justify;
-        margin-bottom: 100px;
+        margin-bottom: 50px;
       }
       .photo-section-garis {
         width: 0px;
@@ -145,7 +145,7 @@ error_reporting(0);
         padding-left: 50px;
         padding-right: 50px;
         text-align: center;
-        margin-bottom: 100px;
+        margin-bottom: 50px;
       }
 
       .location-section {
@@ -154,7 +154,7 @@ error_reporting(0);
         padding-left: 50px;
         padding-right: 50px;
         text-align: center;
-        margin-bottom: 100px;
+        margin-bottom: 50px;
       }
       .covid-section {
         background-color: white;
@@ -162,7 +162,7 @@ error_reporting(0);
         padding-left: 50px;
         padding-right: 50px;
         text-align: center;
-        margin-bottom: 100px;
+        margin-bottom: 50px;
       }
       .live-section {
         background-color: white;
@@ -170,7 +170,7 @@ error_reporting(0);
         padding-left: 50px;
         padding-right: 50px;
         text-align: center;
-        margin-bottom: 100px;
+        margin-bottom: 50px;
       }
       .gift-section {
         background-color: white;
@@ -178,7 +178,7 @@ error_reporting(0);
         padding-left: 50px;
         padding-right: 50px;
         text-align: center;
-        margin-bottom: 100px;
+        margin-bottom: 50px;
       }
       .message-section {
         background-color: black;
@@ -194,7 +194,7 @@ error_reporting(0);
         color: white;
         height: 600px;
         border: 1px solid;
-        margin-bottom: 100px;
+        margin-bottom: 50px;
         padding: 30px;
         text-align: left;
         overflow: auto;
@@ -605,8 +605,25 @@ error_reporting(0);
             <p style="font-size: 20px">14:00 WIB</p>
             <br />
             <p style="font-size: 20px; font-weight: bold">Resepsi</p>
-            <p style="font-size: 20px">Sesi 1 (16:30 - 17.45) WIB</p>
-            <p style="font-size: 20px">Sesi 2 (19:00 - 21:00) WIB</p>
+            <?php 
+            $page = 3;
+            if (empty($_GET['sesi'])) {
+              $page = 1;
+            }else if (is_numeric($_GET['sesi'])){
+              $page = (int) $_GET['sesi'];
+            }else {
+              $page = 1;
+            }
+            if($page == 1){
+              echo '<p style="font-size: 20px" id="sesi1-text">Sesi 1 (16:30 - 17.45) WIB</p>';
+            }else if($page == 2){
+              echo '<p style="font-size: 20px" id="sesi2-text">Sesi 2 (19:00 - 21:00) WIB</p>';
+            }else{
+              echo '<p style="font-size: 20px" id="sesi1-text">Sesi 1 (16:30 - 17.45) WIB</p>';
+              echo '<p style="font-size: 20px" id="sesi2-text">Sesi 2 (19:00 - 21:00) WIB</p>';
+            }
+            ?>
+            
           </div>
         </div>
         <div id="location-section" class="col-X-12">
@@ -667,7 +684,7 @@ error_reporting(0);
         </div>
         <div id="live-section" class="col-X-12">
           <div class="live-section">
-            <img width="100" src="./icon/youtube.png" alt="" />
+            <img width="75" src="./icon/youtube.png" alt="" /> 
             <p style="font-size: 20px; font-weight: bold">Live Streaming</p>
             <p>Bergabunglah dengan live streaming di kanal YouTube untuk menyaksikan momen besar kami.</p>
             <br />
@@ -956,7 +973,7 @@ error_reporting(0);
     <script>
       $(window).on("resize", function () {
         var win = $(this); //this = window
-        if (win.width() < 620) {
+        if (win.width() < 750) {
           $("#left-div").removeClass("col-8");
           $("#right-div").removeClass("col-4");
           $("#right-div").addClass("col-12");
@@ -978,7 +995,7 @@ error_reporting(0);
         document.getElementById("music").play();
         $("#sound-img").attr("src", srcMusicImg);
         $(".landing-page").hide();
-        $(".div2").css({overflow: 'auto'});
+        $(".div2").css({'overflow-y': 'auto'});
       })
       $("#sound-btn").click(function () {
         if (music) {
