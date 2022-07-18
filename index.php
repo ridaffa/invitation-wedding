@@ -505,7 +505,8 @@ error_reporting(0);
         <div id="body-section" class="col-X-12">
           <div class="body-section">
             <center>
-              <p>Assalamu ‘alaikum wr. wb. Yang terhormat keluarga dan kerabat,</p>
+              <p>Assalamu ‘alaikum wr. wb.</p>
+              <p>Yang terhormat keluarga dan kerabat,</p>
               <p style="margin-top: 20px">
                 Dengan nama Allah yang Maha Pengasih dan Maha Penyayang, dengan memohon rahmat dan ridho Allah SWT, kami bermaksud mengundang keluarga
                 dan kerabat untuk menghadiri acara pernikahan kedua putra-putri kami :
@@ -536,7 +537,7 @@ error_reporting(0);
             <center>
               <div class="photo-section-garis"></div>
               <br />
-              <p style="font-size: 0.8em">sekilas tentang kami,</p>
+              <p style="font-size: 0.8em">glimpse of us,</p>
               <br />
               <br />
               <div id="slider-mobile" class="slider">
