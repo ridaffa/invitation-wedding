@@ -499,6 +499,7 @@ error_reporting(0);
             <p style="color: black; font-weight: 700; font-size: 3em">ALIVA</p>
             <p style="color: black; font-weight: 700; font-size: 2em">&</p>
             <p style="color: black; font-weight: 700; font-size: 3em">ARIF</p>
+            <p style="color: black; font-weight: 1; font-size: 1em">#endlessgrowth</p>
             <p style="color: white; font-weight: 700; margin-top: 9em">14 AGUSTUS 2022</p>
           </div>
         </div>
