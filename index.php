@@ -212,10 +212,9 @@ error_reporting(0);
       }
       .footer-div {
         color: white;
-        height: 350px;
         padding-top: 120px;
         background-image: url("./img_l/101.JPG");
-        background-size: cover;
+        background-size: contain;
         text-align: center;
         padding-bottom: 100px;
       }
@@ -400,7 +399,7 @@ error_reporting(0);
         }
       }
     </style>
-    <title>Hello, world!</title>
+    <title>#endlessgrowth!</title>
   </head>
   <body>
     <audio id="music" class="my_audio" controls preload="none" autoplay style="display: none">
