@@ -615,11 +615,11 @@ error_reporting(0);
               $page = 3;
             }
             if($page == 1){
-              echo '<p style="font-size: 20px" id="sesi1-text">Sesi 1 (16:30 - 17.45) WIB</p>';
+              echo '<p style="font-size: 20px" id="sesi1-text">Sesi 1 (16:30 - 18.30) WIB</p>';
             }else if($page == 2){
               echo '<p style="font-size: 20px" id="sesi2-text">Sesi 2 (19:00 - 21:00) WIB</p>';
             }else{
-              echo '<p style="font-size: 20px" id="sesi1-text">Sesi 1 (16:30 - 17.45) WIB</p>';
+              echo '<p style="font-size: 20px" id="sesi1-text">Sesi 1 (16:30 - 18.30) WIB</p>';
               echo '<p style="font-size: 20px" id="sesi2-text">Sesi 2 (19:00 - 21:00) WIB</p>';
             }
             ?>
