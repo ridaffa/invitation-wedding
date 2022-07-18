@@ -1,3 +1,6 @@
+<?php
+error_reporting(0);
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,6 +15,9 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="slider.css" />
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
 
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap");
@@ -31,7 +37,7 @@
         background-color: white;
         font-size: 1em;
         overflow-y: auto;
-
+        overflow-x: hidden;
         height: 100vh;
       }
       img {
@@ -87,6 +93,30 @@
         padding-right: 100px;
         padding-bottom: 20px;
         text-align: justify;
+        padding-bottom: 100px;
+      }
+
+      .photo-section {
+        background-color: white;
+        color: black;
+        text-align: justify;
+        margin-bottom: 100px;
+      }
+      .photo-section-garis {
+        width: 0px;
+        height: 71.5px;
+        left: 201px;
+        top: 1515px;
+        border: 1px solid #000000;
+        background: black;
+      }
+      .photo-section-garis-putih {
+        width: 0px;
+        height: 71.5px;
+        left: 201px;
+        top: 1515px;
+        border: 1px solid #000000;
+        background: white;
       }
       .countdown-timer-section {
         background-color: black;
@@ -95,7 +125,7 @@
         padding-left: 50px;
         padding-right: 50px;
         text-align: justify;
-        padding-bottom: 150px;
+        padding-bottom: 50px;
       }
 
       .c-timer {
@@ -157,6 +187,7 @@
         padding-right: 50px;
         padding-bottom: 100px;
         text-align: center;
+        padding-top: 50px;
       }
       .message-container {
         background-color: black;
@@ -194,6 +225,8 @@
       }
       .message-box p {
         text-align: left;
+        max-width: 200px;
+        word-wrap: break-word;
       }
       .menu-button {
         position: absolute;
@@ -207,8 +240,8 @@
         text-align: center;
         width: 100%;
         padding: 0;
-        padding-bottom: 25px;
-        padding-top: 25px;
+        padding-bottom: 20px;
+        padding-top: 20px;
         margin: 0;
         border-radius: 50px;
       }
@@ -230,14 +263,6 @@
       }
       ul {
         list-style-type: none;
-      }
-
-      .container {
-        width: 100%;
-        height: 100%;
-        max-height: 100%;
-        margin: 0;
-        padding: 0;
       }
 
       .container {
@@ -273,6 +298,18 @@
         left: 100%;
       }
 
+      .name-title {
+        font-size: 20px;
+      }
+
+      .pas-photo-div {
+        margin-top: 50px;
+      }
+
+      .pas-photo-and {
+        margin-top: 50px;
+      }
+
       /* Optional content */
       .optional {
         width: 80%;
@@ -282,7 +319,36 @@
         box-shadow: 0 3px 12px rgba(0, 0, 0, 0.16), 0 3px 12px rgba(0, 0, 0, 0.23);
       }
 
-      @media (max-width: 620px) {
+      #sound-btn {
+        background: white;
+        position: fixed;
+        margin: 12px;
+        border-radius: 100px;
+        padding: 10px;
+        z-index: 100;
+      }
+
+      .landing-page {
+        width: 100%;
+        height: 100%;
+        background: black;
+        background-image: url("./img_l/landing-page.jpg");
+        background-position: center;
+        background-size: cover;
+        text-align: center;
+        color: white;
+      }
+      .btn-custom {
+        border-radius: 10px;
+        background-color: rgba(0, 0, 0, 0);
+        border-color: white;
+        font-size: 12px;
+      }
+      .landing-page{
+        display: none;
+      }
+
+      @media (max-width: 750px) {
         .info {
           position: absolute;
           width: 100%;
@@ -290,6 +356,9 @@
           bottom: 0;
           right: 0;
         }
+        .landing-page{
+        display: block;
+      }
 
         .inner {
           padding: 0.5em 1.5em;
@@ -305,8 +374,9 @@
           text-align: center;
         }
         .body-section {
-          padding-left: 70px;
-          padding-right: 70px;
+          padding-left: 50px;
+          padding-right: 50px;
+          font-size: 0.7em;
         }
         .countdown-timer-section {
           padding-left: 0;
@@ -316,11 +386,27 @@
           padding-left: 20px;
           padding-right: 20px;
         }
+
+        .name-title {
+          font-size: 20px;
+        }
+        #body-section img {
+          max-width: 50%;
+          max-height: 50%;
+          object-fit: contain;
+        }
+        .div2 {
+          overflow-y: hidden;
+        }
       }
     </style>
     <title>Hello, world!</title>
   </head>
   <body>
+    <audio id="music" class="my_audio" controls preload="none" autoplay style="display: none">
+      <source src="./music.mp3" type="audio/mpeg" />
+    </audio>
+
     <div class="row no-gutters">
       <div id="left-div" class="col-8 div1">
         <div style="position: relative">
@@ -385,6 +471,26 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet" />
       </div>
       <div id="right-div" class="col-4 div2">
+        <div class="landing-page" style="padding-top: 50%">
+          <center>
+            <div style="">
+              <img width="30" src="./icon/aalogo.png" alt="">
+              <p style="font-size: 2em">ALIVA & ARIF</p>
+            </div>
+            <br />
+            <div class="photo-section-garis-putih"></div>
+            <br />
+            <a href="#" id="open-invitation" class="btn btn-dark btn-lg btn-custom" value="Open Invitation">Open Invitation</a>
+            <br />
+            <br />
+            <p>Kepada Yth. Bapak/Ibu/Saudara/i</p>
+            <p style="font-weight:bold;"><?php echo $_GET['to']  ?></p>
+            <p></p>
+          </center>
+        </div>
+        <div class="col-X-12">
+          <a id="sound-btn" href="#"><img id="sound-img" width="25" src="./icon/nomusic.png" alt="" /></a>
+        </div>
         <div class="col-X-12">
           <div class="top-section">
             <p>Join and witness big moments of us</p>
@@ -400,29 +506,60 @@
           <div class="body-section">
             <center>
               <p>Assalamu ‘alaikum wr. wb. Yang terhormat keluarga dan kerabat,</p>
-              <p style="margin-top: 25px">
+              <p style="margin-top: 20px">
                 Dengan nama Allah yang Maha Pengasih dan Maha Penyayang, dengan memohon rahmat dan ridho Allah SWT, kami bermaksud mengundang keluarga
                 dan kerabat untuk menghadiri acara pernikahan kedua putra-putri kami :
               </p>
-              <div style="margin-top: 100px">
+              <div class="pas-photo-div">
                 <img class="pas-photo" src="./img_potrait/aliva.JPG" alt="" />
               </div>
-              <p style="font-size: 36px; margin-top: 25px">Aliva Nur Ulfiah, S.Sn.</p>
+              <p class="name-title" style="margin-top: 20px">Aliva Nur Ulfiah, S.Sn.</p>
               <p>Putri dari Bapak Juarto dan Ibu Warni Suharti</p>
-              <p style="margin-top: 100px">&</p>
-              <div style="margin-top: 100px">
+              <p class="name-title pas-photo-and">&</p>
+              <div class="pas-photo-div">
                 <img class="pas-photo" src="./img_potrait/arip.JPG" alt="" />
               </div>
-              <p style="font-size: 36px; margin-top: 25px">Muhammad Rifki Nugroho, S. Ds.</p>
+              <p class="name-title" style="margin-top: 20px">M Rifki Nugroho, S. Ds.</p>
               <p>Putra dari Bapak Gatot Gayantoro Tirtokusumo dan Ibu Hellysa Haerunisa</p>
+              <br />
+              <br />
+              <br />
+              <p>
+                Merupakan suatu kehormatan dan kebahagiaan besar bagi kami apabila keluarga dan kerabat berkenan hadir untuk memberikan doa restu
+                untuk putra-putri kami.
+              </p>
+            </center>
+          </div>
+        </div>
+        <div id="photo-section" class="col-X-12">
+          <div class="photo-section">
+            <center>
+              <div class="photo-section-garis"></div>
+              <br />
+              <p style="font-size: 0.8em">sekilas tentang kami,</p>
+              <br />
+              <br />
+              <div id="slider-mobile" class="slider">
+                <div><img src="./img_l/1.jpg" alt="" /></div>
+                <div><img src="./img_l/2.jpg" alt="" /></div>
+                <div><img src="./img_l/3.jpg" alt="" /></div>
+                <div><img src="./img_l/4.jpg" alt="" /></div>
+                <div><img src="./img_l/5.jpg" alt="" /></div>
+                <div><img src="./img_l/6.jpg" alt="" /></div>
+                <div><img src="./img_l/7.jpg" alt="" /></div>
+                <div><img src="./img_l/8.jpg" alt="" /></div>
+                <div><img src="./img_l/9.jpg" alt="" /></div>
+                <div><img src="./img_l/10.jpg" alt="" /></div>
+                <div><img src="./img_l/11.jpg" alt="" /></div>
+              </div>
             </center>
           </div>
         </div>
         <div class="col-X-12">
           <div class="countdown-timer-section">
             <center>
-              <p style="margin-bottom: 36px; font-size: 36px">Countdown Timer</p>
-              <div class="c-timer" style="font-size: 36px">
+              <p style="margin-bottom: 20px; font-size: 20px">Countdown Timer</p>
+              <div class="c-timer" style="font-size: 20px">
                 <div class="row">
                   <div class="col-3">
                     <span id="ctday">0</span>
@@ -457,25 +594,24 @@
         </div>
         <div id="schedule-section" class="col-X-12">
           <div class="schedule-section">
-            <p style="font-size: 36px">Wedding Day</p>
-            <p>Kami akan tetap sangat berbahagia</p>
-            <p>jika Anda dapat hadir secara virtual.</p>
+            <p style="font-size: 20px; font-weight: bold">Wedding Day</p>
+            <p>Kami akan sangat berbahagia jika anda dapat hadir ke acara pernikahan kami.</p>
             <br />
             <p style="font-weight: lighter; font-size: 50px">|</p>
             <p style="font-weight: lighter; font-size: 50px">14.08.2022</p>
             <p style="font-weight: lighter; font-size: 50px">|</p>
             <br />
-            <p style="font-size: 25px">Akad Nikah</p>
-            <p style="font-size: 25px">14:00 WIB</p>
+            <p style="font-size: 20px; font-weight: bold">Akad Nikah</p>
+            <p style="font-size: 20px">14:00 WIB</p>
             <br />
-            <p style="font-size: 25px">Resepsi</p>
-            <p style="font-size: 25px">Sesi 1 (16:30 - 17.45) WIB</p>
-            <p style="font-size: 25px">Sesi 2 (19:00 - 21:00) WIB</p>
+            <p style="font-size: 20px; font-weight: bold">Resepsi</p>
+            <p style="font-size: 20px">Sesi 1 (16:30 - 17.45) WIB</p>
+            <p style="font-size: 20px">Sesi 2 (19:00 - 21:00) WIB</p>
           </div>
         </div>
         <div id="location-section" class="col-X-12">
           <div class="location-section">
-            <p style="font-size: 36px">Lokasi : Villa Basofi</p>
+            <p style="font-size: 20px; font-weight: bold">Lokasi : Villa Basofi</p>
             <p>Jl. Raya Pd. Ranggon Barat No.11, Pd. Ranggon,</p>
             <p>Kec. Cipayung, Kota Jakarta Timur, DKI Jakarta</p>
             <br />
@@ -487,14 +623,14 @@
                 scrolling="no"
                 marginheight="0"
                 marginwidth="0"
-                style="width: 80%; heigth: 60%"
+                style="width: 80%; height: 60%"
               ></iframe>
             </div>
           </div>
         </div>
         <div id="covid-section" class="col-X-12">
           <div class="covid-section">
-            <p style="font-size: 36px">Patuhi Protokol Kesehatan</p>
+            <p style="font-size: 20px; font-weight: bold">Patuhi Protokol Kesehatan</p>
             <p>Tanpa mengurangi rasa hormat,</p>
             <p>acara ini menerapkan Protokol Kesehatan, sesuai dengan peraturan & rekomendasi pemerintah.</p>
             <br />
@@ -531,56 +667,52 @@
         </div>
         <div id="live-section" class="col-X-12">
           <div class="live-section">
-            <img width="150" src="./icon/youtube.svg" alt="" />
-            <p style="font-size: 36px">Live Streaming</p>
+            <img width="100" src="./icon/youtube.png" alt="" />
+            <p style="font-size: 20px; font-weight: bold">Live Streaming</p>
             <p>Bergabunglah dengan live streaming di kanal YouTube untuk menyaksikan momen besar kami.</p>
             <br />
-            <a class="btn btn-outline-dark" href="https://youtube.com/channel/UCDaMZkieD9rdZO_Fc31S_GQ" role="button" target="_blank">Live Streaming Akad Nikah</a>
+            <a class="btn btn-outline-dark" href="https://youtube.com/channel/UCDaMZkieD9rdZO_Fc31S_GQ" role="button" target="_blank"
+              >Live Streaming Akad Nikah</a
+            >
           </div>
         </div>
         <div id="gift-section" class="col-X-12">
           <div class="gift-section">
-            <p style="font-size: 36px">Wedding Gift</p>
-            <p>Wedding Gift Kehadiran Anda di pernikahan kami</p>
-            <p>sudah cukup bagi kami. Namun, jika Anda ingin</p>
-            <p>memberikan hadiah, kami menyediakan</p>
-            <p>sesuatu untuk memudahkan Anda.</p>
-            <p>Terima kasih sebelumnya!</p>
+            <p style="font-size: 20px; font-weight: bold">Wedding Gift</p>
+            <p>
+              Your blessing and coming to our wedding are enough for us. However, if you want to give a gift we provide something to make it easier
+              for you. Thank you in advance!
+            </p>
             <br />
             <form action="#">
               <select id="dest-bank" name="destination" class="form-select" aria-label="Tujuan">
                 <option selected>Tujuan Penerima</option>
                 <option value="1">Mandiri</option>
                 <option value="2">BCA</option>
-                <option value="3">OVO</option>
-                <option value="4">DANA</option>
               </select>
-              <br>
-              <div id='detail-bank'>
-              </div>
               <br />
-              <br />
-              <input type="text" name="nama" class="form-control" id="exampleFormControlInput1" placeholder="Nama Pengirim" />
-              <br />
-              <input type="text" name="nama-rekening" class="form-control" id="exampleFormControlInput1" placeholder="Nama Pemilik Rekening" />
-              <br />
-              <input type="number" name="nominal" class="form-control" id="exampleFormControlInput1" placeholder="Nominal" />
-              <br />
-              <input type="text" name="pesan" class="form-control" id="exampleFormControlInput1" placeholder="Pesan" />
-              <br />
-              <input class="btn btn-dark btn-lg" type="submit" value="Selanjutnya >" />
+              <div id="detail-bank"></div>
             </form>
           </div>
         </div>
         <div id="message-section" class="col-X-12">
           <div class="message-section">
-            <p style="font-size: 36px">Dear Aliva and Arif,</p>
+            <p style="font-size: 20px">Dear Aliva and Arif,</p>
             <p>Tuliskan pesan dan harapan terbaik Anda untuk kami pada kolom di bawah ini.</p>
             <br />
             <form action="#">
               <input type="text" id="field-name-message" name="nama" class="form-control" id="exampleFormControlInput1" placeholder="Nama Pengirim" />
               <br />
-              <textarea id="field-message-message" name="message" class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="Pesan"></textarea>
+              <textarea
+                id="field-message-message"
+                name="message"
+                class="form-control"
+                id="exampleFormControlTextarea1"
+                rows="5"
+                placeholder="Pesan"
+                onkeyup="countChar(this)"
+              ></textarea>
+              <div id="charNum" style="text-align: right">500</div>
               <br />
               <a id="submit-form-message" class="btn btn-dark btn-lg" value="Kirim">Kirim</a>
               <br />
@@ -657,6 +789,8 @@
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
     <script
       src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
       integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
@@ -667,10 +801,11 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
+    <script src="slider.js" crossorigin="anonymous"></script>
     <script>
       $(document).ready(function () {
         var win = $(this); //this = window
-        if (win.width() < 620) {
+        if (win.width() < 750) {
           $("#left-div").removeClass("col-8");
           $("#right-div").removeClass("col-4");
           $("#right-div").addClass("col-12");
@@ -750,7 +885,6 @@
                   active -= 1;
                 } else {
                   active = itemsLength;
-                  console.log(active);
                   $(".panel:nth-child(" + active + ")").removeClass("right");
                   for (var i = itemsLength - 1; i >= 1; i--) {
                     $(".panel:nth-child(" + i + ")").removeClass("right");
@@ -836,6 +970,29 @@
       });
     </script>
     <script>
+      var srcMusicImg = "./icon/nomusic.png";
+      var music = true;
+      $("#open-invitation").click(function(){
+        music = false;
+        srcMusicImg = "./icon/music.png";
+        document.getElementById("music").play();
+        $("#sound-img").attr("src", srcMusicImg);
+        $(".landing-page").hide();
+        $(".div2").css({overflow: 'auto'});
+      })
+      $("#sound-btn").click(function () {
+        if (music) {
+          music = false;
+          srcMusicImg = "./icon/music.png";
+          document.getElementById("music").play();
+        } else {
+          music = true;
+          srcMusicImg = "./icon/nomusic.png";
+
+          document.getElementById("music").pause();
+        }
+        $("#sound-img").attr("src", srcMusicImg);
+      });
       $("#kado-btn").click(function () {
         var topPos = document.getElementById("gift-section").offsetTop;
         $("#right-div").animate({ scrollTop: topPos - 10 });
@@ -852,68 +1009,83 @@
         var topPos = document.getElementById("location-section").offsetTop;
         $("#right-div").animate({ scrollTop: topPos - 10 });
       });
+      $("#image-btn").click(function () {
+        var topPos = document.getElementById("photo-section").offsetTop;
+        $("#right-div").animate({ scrollTop: topPos - 10 });
+      });
       $("#mail-btn").click(function () {
         var topPos = document.getElementById("message-section").offsetTop;
         $("#right-div").animate({ scrollTop: topPos - 10 });
       });
+      function countChar(val) {
+        var len = val.value.length;
+        if (len >= 500) {
+          val.value = val.value.substring(0, 500);
+        } else {
+          $("#charNum").text(500 - len);
+        }
+      }
     </script>
     <script>
-      function getMessage(){
-        $.post( "./get_message.php", function( data ) {
-          var text = ""
-          for(var i = data.message.length; i > 0; i--){
-            text += '<div class="message-box">'
-            text += '<span style="font-size: 26px"> '+data.message[i-1].name+' </span>'
-            text += '<p>'+data.message[i-1].message+'</p>'
-            text += '<br /><p style="font-size: 14px">'+data.message[i-1].time+'</p>'
-            text += '</div>'
+      function getMessage() {
+        $.post("./get_message.php", function (data) {
+          var text = "";
+          for (var i = data.message.length; i > 0; i--) {
+            text += '<div class="message-box">';
+            text += '<span style="font-size: 26px"> ' + data.message[i - 1].name + " </span>";
+            text += "<p>" + data.message[i - 1].message + "</p>";
+            text += '<br /><p style="font-size: 14px">' + data.message[i - 1].time + "</p>";
+            text += "</div>";
           }
-          $( ".message-container" ).html(text);
+          $(".message-container").html(text);
         });
       }
-      getMessage()
-      $("#submit-form-message").click(function(){
-        var name = $("#field-name-message").val()
-        var message = $("#field-message-message").val()
-        var time = new Date().toLocaleString('en-ID', { timeZone: 'Asia/Jakarta' })
-        if(name.length < 4){
-          alert("name must be more than 4 characters")
-        }else{
-          if(message.length < 10){
-            alert("message must be more than 10 characters")
-          }else{
+      getMessage();
+      $("#submit-form-message").click(function () {
+        var name = $("#field-name-message").val();
+        var message = $("#field-message-message").val();
+        var time = new Date().toLocaleString("en-ID", { timeZone: "Asia/Jakarta" });
+        if (name.length < 4) {
+          alert("name must be more than 4 characters");
+        } else {
+          if (message.length < 10) {
+            alert("message must be more than 10 characters");
+          } else if (message.length >= 500) {
+          } else {
             var message = {
-            "name": name,
-            "message": message,
-            "time": time
-            }
+              name: name,
+              message: message,
+              time: time,
+            };
             request = $.ajax({
-                url: "./new_message.php",
-                type: "post",
-                data: message
+              url: "./new_message.php",
+              type: "post",
+              data: message,
             });
 
             // Callback handler that will be called on success
-            request.done(function (response, textStatus, jqXHR){
-                if(response.status == 'done'){
-                  alert('Pesan berhasil terkirim!')
-                  getMessage()
-                }else{
-                  alert('Pesan gagal terkirim!')
-                }
+            request.done(function (response, textStatus, jqXHR) {
+              if (response.status == "done") {
+                alert("Pesan berhasil terkirim!");
+                getMessage();
+              } else {
+                alert("Pesan gagal terkirim!");
+              }
             });
           }
         }
-      })
+      });
     </script>
     <script>
-      $('#dest-bank').on('change', function() {
-        if(this.value == 1){
-          $('#detail-bank').html('<br/><p>Bank Mandiri</p><p>Account Number: 131-00-123-1796-4</p><p>Atas Nama: Muhammad Rifki Nugroho</p>')
-        }else if(this.value == 2){
-          $('#detail-bank').html('<br/><p>Bank BCA</p><p>Account Number: 4060801709</p><p>Atas Nama: Aliva Nur Ulfiah</p>')
-        }else{
-          $('#detail-bank').html('')
+      $("#dest-bank").on("change", function () {
+        if (this.value == 1) {
+          $("#detail-bank").html("<br/><p>Bank Mandiri</p><p>Account Number: 131-00-123-1796-4</p><p>Atas Nama: Muhammad Rifki Nugroho</p>");
+        } else if (this.value == 2) {
+          $("#detail-bank").html(
+            `<br/><img src="./icon/qr.jpeg" alt="" width="200"><br/><p>Bank BCA</p><p>Account Number: 4060801709</p><p>Atas Nama: Aliva Nur Ulfiah</p>`
+          );
+        } else {
+          $("#detail-bank").html("");
         }
       });
     </script>

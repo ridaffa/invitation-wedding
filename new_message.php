@@ -7,9 +7,14 @@ $message= new stdClass();
 $message->name = $_POST['name'];
 $message->message = $_POST['message'];
 $message->time = $_POST['time'];
-array_push($array->message,$message);
+
+$message->status = 'done';
+if(strlen($_POST['message']) >= 500 || strlen($_POST['message']) <= 4){
+    $message->status = 'error';
+}else{
+    array_push($array->message,$message);
 $data = json_encode($array);
 file_put_contents($url, $data);
-$message->status = 'done';
+}
 echo json_encode($message);
 ?>
