@@ -761,9 +761,9 @@ error_reporting(0);
 
             </div>
             <div id="page-id">
-              <button class="btn btn-outline-light" onclick="nextPage()">next</button>
+            <button class="btn btn-outline-light" onclick="prevPage()">prev</button>
               <span id="page-now">1</span><span>/</span><span id="last-page">1</span>
-              <button class="btn btn-outline-light" onclick="prevPage()">prev</button>
+              <button class="btn btn-outline-light" onclick="nextPage()">next</button>
             </div>
           </div>
         </div>
