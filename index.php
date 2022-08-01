@@ -8,6 +8,16 @@ error_reporting(0);
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
+    <meta property="og:site_name" content="#endlessgrowth!" />
+    <meta
+      property="og:title"
+      content="Arif & Aliva Wedding"
+    />
+    <meta
+      property="og:description"
+      content="Assalamu ‘alaikum wr. wb. Yang terhormat keluarga dan kerabat,Dengan nama Allah yang Maha Pengasih dan Maha Penyayang, dengan memohon rahmat dan ridho Allah SWT, kami bermaksud mengundang keluarga dan kerabat untuk menghadiri acara pernikahan kami"/>
+    <meta property="og:image" content="./img_l/7.jpg" />
+
     <!-- Bootstrap CSS -->
     <link
       rel="stylesheet"
