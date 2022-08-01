@@ -5,7 +5,7 @@ $readJSONFile = file_get_contents($url);
 $array = json_decode($readJSONFile);
 $message= new stdClass();
 $message->name = $_POST['name'];
-$message->message = $_POST['message'];
+$message->message = htmlspecialchars($_POST['message']);
 $message->time = $_POST['time'];
 
 $message->status = 'done';

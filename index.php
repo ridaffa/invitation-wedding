@@ -204,8 +204,12 @@ error_reporting(0);
       .last-section {
         background-color: black;
         color: white;
-        padding-bottom: 100px;
         text-align: center;
+        color: white;
+        padding-top: 50px;
+        text-align: center;
+        font-size: 15px;
+        padding-bottom: 10px;
       }
       .footer-section {
         background-color: black;
@@ -214,11 +218,11 @@ error_reporting(0);
       }
       .footer-div {
         color: white;
-        padding-top: 120px;
         background-image: url("./img_l/101.JPG");
-        background-size: contain;
-        text-align: center;
-        padding-bottom: 100px;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        height: 50vh;
+        padding-top: 25%;
       }
       .message-box {
         font-size: 16px;
@@ -398,6 +402,10 @@ error_reporting(0);
         }
         .div2 {
           overflow-y: hidden;
+        }
+        .footer-div {
+          height: 25vh;
+          padding-top: 15%;
         }
       }
     </style>
@@ -740,54 +748,12 @@ error_reporting(0);
             <br />
             <br />
             <div class="message-container">
-              <div class="message-box">
-                <span style="font-size: 26px"> Bambang Sutasno </span>
-                <p>Pesan ini cuman tes.Pesan ini cuman tes.Pesan ini cuman tes.Pesan ini cuman tes.Pesan ini cuman tes.</p>
-                <br />
-                <p style="font-size: 14px">99 Desember 2022, 00:00</p>
-              </div>
-              <div class="message-box">
-                <span style="font-size: 26px"> Bambang Sutasno </span>
-                <p>Pesan ini cuman tes.Pesan ini cuman tes.Pesan ini cuman tes.Pesan ini cuman tes.Pesan ini cuman tes.</p>
-                <br />
-                <p style="font-size: 14px">99 Desember 2022, 00:00</p>
-              </div>
-              <div class="message-box">
-                <span style="font-size: 26px"> Bambang Sutasno </span>
-                <p>Pesan ini cuman tes.Pesan ini cuman tes.Pesan ini cuman tes.Pesan ini cuman tes.Pesan ini cuman tes.</p>
-                <br />
-                <p style="font-size: 14px">99 Desember 2022, 00:00</p>
-              </div>
-              <div class="message-box">
-                <span style="font-size: 26px"> Bambang Sutasno </span>
-                <p>Pesan ini cuman tes.Pesan ini cuman tes.Pesan ini cuman tes.Pesan ini cuman tes.Pesan ini cuman tes.</p>
-                <br />
-                <p style="font-size: 14px">99 Desember 2022, 00:00</p>
-              </div>
-              <div class="message-box">
-                <span style="font-size: 26px"> Bambang Sutasno </span>
-                <p>Pesan ini cuman tes.Pesan ini cuman tes.Pesan ini cuman tes.Pesan ini cuman tes.Pesan ini cuman tes.</p>
-                <br />
-                <p style="font-size: 14px">99 Desember 2022, 00:00</p>
-              </div>
-              <div class="message-box">
-                <span style="font-size: 26px"> Bambang Sutasno </span>
-                <p>Pesan ini cuman tes.Pesan ini cuman tes.Pesan ini cuman tes.Pesan ini cuman tes.Pesan ini cuman tes.</p>
-                <br />
-                <p style="font-size: 14px">99 Desember 2022, 00:00</p>
-              </div>
-              <div class="message-box">
-                <span style="font-size: 26px"> Bambang Sutasno </span>
-                <p>Pesan ini cuman tes.Pesan ini cuman tes.Pesan ini cuman tes.Pesan ini cuman tes.Pesan ini cuman tes.</p>
-                <br />
-                <p style="font-size: 14px">99 Desember 2022, 00:00</p>
-              </div>
-              <div class="message-box">
-                <span style="font-size: 26px"> Bambang Sutasno </span>
-                <p>Pesan ini cuman tes.Pesan ini cuman tes.Pesan ini cuman tes.Pesan ini cuman tes.Pesan ini cuman tes.</p>
-                <br />
-                <p style="font-size: 14px">99 Desember 2022, 00:00</p>
-              </div>
+
+            </div>
+            <div id="page-id">
+              <button class="btn btn-outline-light" onclick="nextPage()">next</button>
+              <span id="page-now">1</span><span>/</span><span id="last-page">1</span>
+              <button class="btn btn-outline-light" onclick="prevPage()">prev</button>
             </div>
           </div>
         </div>
@@ -801,7 +767,11 @@ error_reporting(0);
           </div>
         </div>
         <div id="last-section" class="col-X-12">
-          <div class="last-section"></div>
+          <div class="last-section">
+            <p><span>Powered By &nbsp;&nbsp;</span>
+          <img width="50" src="./icon/logo_kiki.png" alt=""><span>&nbsp;&nbsp;& &nbsp;&nbsp;<a style="color:white"href="https://www.linkedin.com/in/ridaffa/">Ridaffa</a></span></p>
+          
+          </div>
         </div>
       </div>
     </div>
@@ -1056,20 +1026,28 @@ error_reporting(0);
       }
     </script>
     <script>
-      function getMessage() {
+      var page = 1
+      $("#page-now").html(page)
+      var maxPage = 1
+      function getMessage(page) {
         $.post("./get_message.php", function (data) {
+          $("#page-now").html(page)
           var text = "";
-          for (var i = data.message.length; i > 0; i--) {
-            text += '<div class="message-box">';
-            text += '<span style="font-size: 26px"> ' + data.message[i - 1].name + " </span>";
-            text += "<p>" + data.message[i - 1].message + "</p>";
-            text += '<br /><p style="font-size: 14px">' + data.message[i - 1].time + "</p>";
-            text += "</div>";
+          maxPage = Math.floor(data.message.length/10);
+          $("#last-page").html(maxPage)
+          for (var i = data.message.length-((page-1)*10); i > data.message.length-(page*10); i--) {
+            if(i >= 0){
+              text += '<div class="message-box">';
+              text += '<span style="font-size: 26px"> ' + data.message[i - 1].name + " </span>";
+              text += "<p>" + data.message[i - 1].message + "</p>";
+              text += '<br /><p style="font-size: 14px">' + data.message[i - 1].time + "</p>";
+              text += "</div>";
+            }
           }
           $(".message-container").html(text);
         });
       }
-      getMessage();
+      getMessage(page);
       $("#submit-form-message").click(function () {
         var name = $("#field-name-message").val();
         var message = $("#field-message-message").val();
@@ -1096,7 +1074,8 @@ error_reporting(0);
             request.done(function (response, textStatus, jqXHR) {
               if (response.status == "done") {
                 alert("Pesan berhasil terkirim!");
-                getMessage();
+                page = 1
+                getMessage(page);
               } else {
                 alert("Pesan gagal terkirim!");
               }
@@ -1104,6 +1083,18 @@ error_reporting(0);
           }
         }
       });
+      function nextPage(){
+        if(page < maxPage){
+          page += 1;
+          getMessage(page)
+        }
+      }
+      function prevPage(){
+        if(page > 1){
+          page -= 1;
+          getMessage(page)
+        }
+      }
     </script>
     <script>
       $("#dest-bank").on("change", function () {
