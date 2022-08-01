@@ -1069,10 +1069,13 @@ error_reporting(0);
         var time = new Date().toLocaleString("en-ID", { timeZone: "Asia/Jakarta" });
         if (name.length < 4) {
           alert("name must be more than 4 characters");
+        }else if(name.length >= 20){
+          alert("maximum name 20 characters");
         } else {
           if (message.length < 10) {
             alert("message must be more than 10 characters");
           } else if (message.length >= 500) {
+            alert("to much message!");
           } else {
             var message = {
               name: name,
