@@ -1039,25 +1039,30 @@ error_reporting(0);
       var page = 1
       $("#page-now").html(page)
       var maxPage = 1
-      function getMessage(page) {
+      var messageData = []
+      function getMessage() {
         $.post("./get_message.php", function (data) {
-          $("#page-now").html(page)
-          var text = "";
-          maxPage = Math.floor(data.message.length/10);
+          messageData = data.message
+          maxPage = Math.ceil(data.message.length/10);
           $("#last-page").html(maxPage)
-          for (var i = data.message.length-((page-1)*10); i > data.message.length-(page*10); i--) {
-            if(i >= 0){
+          showMessage(page, data.message);
+        });
+      }
+      function showMessage(page, message){
+        $("#page-now").html(page)
+          var text = "";
+          for (var i = message.length-((page-1)*10); i > message.length-(page*10); i--) {
+            if(i > 0){
               text += '<div class="message-box">';
-              text += '<span style="font-size: 26px"> ' + data.message[i - 1].name + " </span>";
-              text += "<p>" + data.message[i - 1].message + "</p>";
-              text += '<br /><p style="font-size: 14px">' + data.message[i - 1].time + "</p>";
+              text += '<span style="font-size: 26px"> ' + message[i - 1]?.name + " </span>";
+              text += "<p>" + message[i - 1]?.message + "</p>";
+              text += '<br /><p style="font-size: 14px">' + message[i - 1]?.time + "</p>";
               text += "</div>";
             }
           }
           $(".message-container").html(text);
-        });
       }
-      getMessage(page);
+      getMessage();
       $("#submit-form-message").click(function () {
         var name = $("#field-name-message").val();
         var message = $("#field-message-message").val();
@@ -1085,7 +1090,7 @@ error_reporting(0);
               if (response.status == "done") {
                 alert("Pesan berhasil terkirim!");
                 page = 1
-                getMessage(page);
+                getMessage();
               } else {
                 alert("Pesan gagal terkirim!");
               }
@@ -1096,13 +1101,13 @@ error_reporting(0);
       function nextPage(){
         if(page < maxPage){
           page += 1;
-          getMessage(page)
+          showMessage(page, messageData)
         }
       }
       function prevPage(){
         if(page > 1){
           page -= 1;
-          getMessage(page)
+          showMessage(page, messageData)
         }
       }
     </script>
