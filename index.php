@@ -779,7 +779,7 @@ error_reporting(0);
         <div id="last-section" class="col-X-12">
           <div class="last-section">
             <p><span>Powered By &nbsp;&nbsp;</span>
-          <img width="50" src="./icon/logo_kiki.png" alt=""><span>&nbsp;&nbsp;& &nbsp;&nbsp;<a style="color:white"href="https://www.linkedin.com/in/ridaffa/">Ridaffa</a></span></p>
+          <img width="50" src="./icon/km_logo.png" alt=""><span>&nbsp;&nbsp;& &nbsp;&nbsp;<a style="color:white"href="https://www.linkedin.com/in/ridaffa/">Ridaffa</a></span></p>
           
           </div>
         </div>
