@@ -362,6 +362,43 @@ error_reporting(0);
       .landing-page{
         display: none;
       }
+      .loading {
+        font-weight: bold;
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.5);
+        position: absolute;
+        z-index: 1000;
+        width: 100%;
+        height: 100%;
+        padding-top: 25%;
+        backdrop-filter: blur(10px) saturate(70%);
+        display: none;
+     }
+
+      .loading__author {
+        font-weight: normal;
+        font-size: 0.9rem;
+        color: rgba(189,189,189 ,1);
+        margin: 0.6rem 0 2rem 0;
+        display: block;
+      }
+
+      .loading__anim {
+        width: 35px;
+        height: 35px;
+        border:  5px solid rgba(189,189,189 ,0.25);
+        border-left-color: rgba(3,155,229 ,1);
+        border-top-color: rgba(3,155,229 ,1);
+        border-radius: 50%;
+        display: inline-block;
+        animation: rotate 600ms infinite linear;
+      }
+
+      @keyframes rotate {
+        to {
+          transform: rotate(1turn)
+        }
+      }
 
       @media (max-width: 750px) {
         .info {
@@ -422,6 +459,9 @@ error_reporting(0);
     <title>#endlessgrowth!</title>
   </head>
   <body>
+      <section class="loading">      
+      <span class="loading__anim"></span>
+    </section>
     <audio id="music" class="my_audio" controls preload="none" autoplay style="display: none">
       <source src="./music.mp3" type="audio/mpeg" />
     </audio>
@@ -1068,14 +1108,16 @@ error_reporting(0);
         var time = new Date().toLocaleString("en-ID", { timeZone: "Asia/Jakarta" });
         if (name.length < 4) {
           alert("name must be more than 4 characters");
-        }else if(name.length >= 20){
-          alert("maximum name 20 characters");
+        }else if(name.length >= 50){
+          alert("maximum name 50 characters");
         } else {
           if (message.length < 10) {
             alert("message must be more than 10 characters");
           } else if (message.length >= 500) {
             alert("to much message!");
           } else {
+            
+            $('.loading').show();
             var message = {
               name: name,
               message: message,
@@ -1089,11 +1131,14 @@ error_reporting(0);
 
             // Callback handler that will be called on success
             request.done(function (response, textStatus, jqXHR) {
+              
               if (response.status == "done") {
+                $('.loading').hide();
                 alert("Pesan berhasil terkirim!");
                 page = 1
                 getMessage();
               } else {
+                $('.loading').hide();
                 alert("Pesan gagal terkirim!");
               }
             });

@@ -9,7 +9,7 @@ $message->message = htmlspecialchars($_POST['message']);
 $message->time = $_POST['time'];
 
 $message->status = 'done';
-if(strlen($_POST['message']) >= 500 || strlen($_POST['message']) <= 4 || strlen($_POST['name']) >= 20 || strlen($_POST['name']) <= 4){
+if(strlen($_POST['message']) >= 500 || strlen($_POST['message']) <= 4 || strlen($_POST['name']) >= 50 || strlen($_POST['name']) <= 4){
     $message->status = 'error';
 }else{
     array_push($array->message,$message);
