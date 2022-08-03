@@ -770,8 +770,7 @@ error_reporting(0);
         <div id="footer-section" class="col-X-12">
           <div class="footer-section">
             <div class="footer-div">
-              <p>"Dan segala sesuatu Kami ciptakan berpasang-pasangan agar kamu"</p>
-              <p>mengingat (kebesaran Allah).</p>
+              <p>"Dan segala sesuatu Kami ciptakan berpasang-pasangan agar kamu mengingat (kebesaran Allah)."</p>
               <p style="font-size: 16px">(QS. Az Zariyat: 49)</p>
             </div>
           </div>
@@ -779,7 +778,7 @@ error_reporting(0);
         <div id="last-section" class="col-X-12">
           <div class="last-section">
             <p><span>Powered By &nbsp;&nbsp;</span>
-          <img width="50" src="./icon/km_logo.png" alt=""><span>&nbsp;&nbsp;& &nbsp;&nbsp;<a style="color:white"href="https://www.linkedin.com/in/ridaffa/" target="_blank">Ridaffa</a></span></p>
+          <a href="https://instagram.com/studiokimal" target="_blank"><img width="50" src="./icon/km_logo.png" alt=""></a><span>&nbsp;&nbsp;& &nbsp;&nbsp;<a style="color:white"href="https://www.linkedin.com/in/ridaffa/" target="_blank">Ridaffa</a></span></p>
           
           </div>
         </div>
